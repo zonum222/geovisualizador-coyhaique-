@@ -150,10 +150,10 @@ if mostrar_accesibilidad and (incluir_salud or incluir_bomberos):
     score_final = np.flipud(score_final)  # para que la imagen quede orientada correctamente
 
     # --- Convertir a imagen RGBA con rampa de color ---
-    import matplotlib.cm as cm
+    import matplotlib
     import matplotlib.colors as mcolors
 
-    cmap = cm.get_cmap("RdYlGn")
+    cmap = matplotlib.colormaps["RdYlGn"]
     rgba_img = cmap(score_final)
     rgba_img[..., 3] = np.where(score_final > 0, 0.6, 0)  # transparente donde no hay acceso
 
